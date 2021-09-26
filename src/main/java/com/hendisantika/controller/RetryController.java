@@ -23,7 +23,7 @@ public class RetryController {
     Logger logger = LoggerFactory.getLogger(RetryController.class);
     RestTemplate restTemplate = new RestTemplate();
 
-    @GetMapping("/getInvoice")
+    @GetMapping("/getInvoice2")
     @Retry(name = "getInvoiceRetry", fallbackMethod = "getInvoiceFallback")
     public String getInvoice() {
         logger.info("getInvoice() call starts here");

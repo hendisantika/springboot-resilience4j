@@ -1,10 +1,12 @@
 resilience4j:
   bulkhead:
+    bulkheadAspectOrder: 1
     instances:
       getMessageBH:
         max-concurrent-calls: 5
         max-wait-duration: 0
   circuitbreaker:
+    circuitBreakerAspectOrder: 4
     instances:
       GetInvoiceCB:
         automatic-transition-from-open-to-half-open-enabled: true
@@ -15,12 +17,14 @@ resilience4j:
         sliding-window-type: COUNT_BASED
         wait-duration-in-open-state: 10s
   ratelimiter:
+    rateLimiterAspectOrder: 3
     instances:
       getMessageRateLimit:
         limit-for-period: 2
         limit-refresh-period: 10s
         timeout-duration: 0
   retry:
+    retryAspectOrder: 5
     instances:
       getInvoiceRetry:
         enable-exponential-backoff: true
@@ -28,6 +32,7 @@ resilience4j:
         retry-exceptions: org.springframework.web.client.ResourceAccessException
         wait-duration: 2s
   timelimiter:
+    timeLimiterAspectOrder: 2
     instances:
       getMessageTL:
         cancel-running-future: false

@@ -24,7 +24,7 @@ public class BulkheadController {
 
     Logger logger = LoggerFactory.getLogger(BulkheadController.class);
 
-    @GetMapping("/getMessage")
+    @GetMapping("/getMessage2")
     @Bulkhead(name = "getMessageBH", fallbackMethod = "getMessageFallBack")
     public ResponseEntity<String> getMessage(@RequestParam(value = "name", defaultValue = "Hello") String name) {
 
