@@ -4,3 +4,13 @@ resilience4j:
       getMessageBH:
         max-concurrent-calls: 5
         max-wait-duration: 0
+  circuitbreaker:
+    instances:
+      GetInvoiceCB:
+        automatic-transition-from-open-to-half-open-enabled: true
+        failure-rate-threshold: 80
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 4
+        sliding-window-size: 10
+        sliding-window-type: COUNT_BASED
+        wait-duration-in-open-state: 10s
