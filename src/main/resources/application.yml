@@ -26,3 +26,9 @@ resilience4j:
         enable-exponential-backoff: true
         max-attempts: 5
         retry-exceptions: org.springframework.web.client.ResourceAccessException
+        wait-duration: 2s
+  timelimiter:
+    instances:
+      getMessageTL:
+        cancel-running-future: false
+        timeout-duration: 1s
