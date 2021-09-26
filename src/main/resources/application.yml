@@ -20,3 +20,9 @@ resilience4j:
         limit-for-period: 2
         limit-refresh-period: 10s
         timeout-duration: 0
+  retry:
+    instances:
+      getInvoiceRetry:
+        enable-exponential-backoff: true
+        max-attempts: 5
+        retry-exceptions: org.springframework.web.client.ResourceAccessException
