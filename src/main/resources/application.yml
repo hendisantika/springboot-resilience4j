@@ -1,0 +1,6 @@
+resilience4j:
+  bulkhead:
+    instances:
+      getMessageBH:
+        max-concurrent-calls: 5
+        max-wait-duration: 0
